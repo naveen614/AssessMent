@@ -100,14 +100,13 @@ class NsePage(BasePage):
         for index, row in beforeDeployment.iterrows():
             listOfBefore.append(row.to_list())
 
-        arr1 = np.array(listOfAfter[21])
-        arr2 = np.array(listOfBefore[21])
-
-        difference = []
-        # Using numpy's built-in functions to find the mismatch
-        Output = np.where(arr1 != arr2)[0]
-        # print(np.array(Output))
-
-        for valuesOf in np.array(Output):
-            print("Column Name: " + headings[valuesOf])
-            print("beforeValues: " + listOfAfter[21][valuesOf], "after values: " + listOfBefore[21][valuesOf])
+        for i in range(21, 41):
+            arr1 = np.array(listOfAfter[i])
+            arr2 = np.array(listOfBefore[i])
+            Output = np.where(arr1 != arr2)[0]
+            # print(np.array(Output))
+            for valuesOf in np.array(Output):
+                # print(valuesOf)
+                #     # print("Column Name: "+heading[valuesOf])
+                print("before values: "), print(listOfAfter[i][valuesOf]), print("After values: "), print(
+                    listOfBefore[i][valuesOf])
